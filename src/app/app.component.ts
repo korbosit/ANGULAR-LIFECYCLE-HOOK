@@ -11,13 +11,13 @@ import { DemoComponent } from './demo/demo.component';
 })
 export class AppComponent {
   title = 'ANGULAR-LIFECYCLE-HOOK';
-  inputVal: string[] = ['Hello', 'Hi there'];
+  inputVal: string = '';
 
   constructor() {
     console.log('App component constructor called');
   }
 
   onBtnCkick(inputEl: HTMLInputElement) {
-    this.inputVal.push(inputEl.value);
+    this.inputVal = inputEl.value;
   }
 }

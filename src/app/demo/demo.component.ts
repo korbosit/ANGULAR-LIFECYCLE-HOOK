@@ -6,6 +6,7 @@ import {
   OnInit,
   ElementRef,
   ViewChild,
+  DoCheck,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DemoComponent implements OnChanges, OnInit {
   title: string = 'Demo Component';
-  @Input() message: string[];
+  @Input() message: string;
   @ViewChild('temp') tempPara: ElementRef;
   constructor() {
     console.log('Demo component constructor called');
@@ -33,6 +34,11 @@ export class DemoComponent implements OnChanges, OnInit {
 
   ngOnInit() {
     console.log('ngOnInit Hook called');
+    // console.log(this.tempPara.nativeElement.innerHTML);
+  }
+
+  DoCheck() {
+    console.log('DoCheck Hook called');
     // console.log(this.tempPara.nativeElement.innerHTML);
   }
 }
