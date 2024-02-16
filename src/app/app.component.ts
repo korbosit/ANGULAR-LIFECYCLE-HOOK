@@ -20,6 +20,9 @@ export class AppComponent {
   ngAfterViewInit() {
     console.log('ngAfterViewInit Hook of AppComponent called');
   }
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked Hook of AppComponent called');
+  }
 
   onBtnCkick(inputEl: HTMLInputElement) {
     this.inputVal = inputEl.value;

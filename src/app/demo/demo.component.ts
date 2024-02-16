@@ -11,6 +11,7 @@ import {
   ContentChild,
   AfterContentChecked,
   AfterViewInit,
+  AfterViewChecked,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -28,14 +29,15 @@ export class DemoComponent
     DoCheck,
     AfterContentInit,
     AfterContentChecked,
-    AfterViewInit
+    AfterViewInit,
+    AfterViewChecked
 {
   title: string = 'Demo Component';
   @Input() message: string;
   @ViewChild('temp') tempPara: ElementRef;
   @ContentChild('temp') paraContent: ElementRef;
   constructor() {
-    // console.log('Demo component constructor called');
+    console.log('Demo component constructor called');
     // console.log(this.title);
     // console.log(this.message);
   }
@@ -62,11 +64,16 @@ export class DemoComponent
   }
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked Hook called');
-    console.log('In ngAfterContentChecked', this.tempPara);
+    // console.log('In ngAfterContentChecked', this.tempPara);
   }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit Hook called');
-    console.log('In ngAfterViewInit', this.tempPara);
+    // console.log('In ngAfterViewInit', this.tempPara);
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked Hook called');
+    console.log(this.tempPara.nativeElement.textContent);
   }
 }
