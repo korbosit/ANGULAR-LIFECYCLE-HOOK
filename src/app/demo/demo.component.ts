@@ -10,6 +10,7 @@ import {
   AfterContentInit,
   ContentChild,
   AfterContentChecked,
+  AfterViewInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +22,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './demo.component.scss',
 })
 export class DemoComponent
-  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked
+  implements
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit
 {
   title: string = 'Demo Component';
   @Input() message: string;
@@ -34,12 +41,12 @@ export class DemoComponent
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log('ngOnChanges Hook called');
+    console.log('ngOnChanges Hook called');
     // console.log(changes);
   }
 
   ngOnInit() {
-    // console.log('ngOnInit Hook called');
+    console.log('ngOnInit Hook called');
     // console.log(this.tempPara.nativeElement.innerHTML);
   }
 
@@ -55,6 +62,11 @@ export class DemoComponent
   }
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked Hook called');
-    console.log('In ngAfterContentChecked', this.paraContent.nativeElement);
+    console.log('In ngAfterContentChecked', this.tempPara);
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit Hook called');
+    console.log('In ngAfterViewInit', this.tempPara);
   }
 }
