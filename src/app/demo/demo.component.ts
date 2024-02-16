@@ -12,6 +12,7 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
+  OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -30,7 +31,8 @@ export class DemoComponent
     AfterContentInit,
     AfterContentChecked,
     AfterViewInit,
-    AfterViewChecked
+    AfterViewChecked,
+    OnDestroy
 {
   title: string = 'Demo Component';
   @Input() message: string;
@@ -74,6 +76,10 @@ export class DemoComponent
 
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked Hook called');
-    console.log(this.tempPara.nativeElement.textContent);
+    // console.log(this.tempPara.nativeElement.textContent);
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy Hook called');
   }
 }
